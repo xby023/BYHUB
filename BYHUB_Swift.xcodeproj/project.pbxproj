@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9DFBCD3C5A27F0ECA9CE8D21 /* libPods-BYHUB_Swift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E41F23A059A8A5E7A199AD28 /* libPods-BYHUB_Swift.a */; };
 		A163837C2202900300AA2B47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163837B2202900300AA2B47 /* AppDelegate.swift */; };
 		A163837E2202900300AA2B47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163837D2202900300AA2B47 /* ViewController.swift */; };
 		A16383812202900300AA2B47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A163837F2202900300AA2B47 /* Main.storyboard */; };
 		A16383832202900400AA2B47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A16383822202900400AA2B47 /* Assets.xcassets */; };
 		A16383862202900400AA2B47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16383842202900400AA2B47 /* LaunchScreen.storyboard */; };
+		A163839322029BFC00AA2B47 /* BYHUB.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163839222029BFC00AA2B47 /* BYHUB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09E3B4BC20F0AEBD6BF0BACE /* Pods-BYHUB_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BYHUB_Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-BYHUB_Swift/Pods-BYHUB_Swift.release.xcconfig"; sourceTree = "<group>"; };
+		65C794CF007B2F0C24FCAA56 /* Pods-BYHUB_Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BYHUB_Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BYHUB_Swift/Pods-BYHUB_Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		A16383782202900300AA2B47 /* BYHUB_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BYHUB_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A163837B2202900300AA2B47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A163837D2202900300AA2B47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +26,8 @@
 		A16383822202900400AA2B47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A16383852202900400AA2B47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A16383872202900400AA2B47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A163839222029BFC00AA2B47 /* BYHUB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BYHUB.swift; sourceTree = "<group>"; };
+		E41F23A059A8A5E7A199AD28 /* libPods-BYHUB_Swift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BYHUB_Swift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DFBCD3C5A27F0ECA9CE8D21 /* libPods-BYHUB_Swift.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E0206D436C8DD4C4A22394A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				65C794CF007B2F0C24FCAA56 /* Pods-BYHUB_Swift.debug.xcconfig */,
+				09E3B4BC20F0AEBD6BF0BACE /* Pods-BYHUB_Swift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		89107529E8B3CE5A7CE0581D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E41F23A059A8A5E7A199AD28 /* libPods-BYHUB_Swift.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A163836F2202900300AA2B47 = {
 			isa = PBXGroup;
 			children = (
 				A163837A2202900300AA2B47 /* BYHUB_Swift */,
 				A16383792202900300AA2B47 /* Products */,
+				3E0206D436C8DD4C4A22394A /* Pods */,
+				89107529E8B3CE5A7CE0581D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +80,7 @@
 		A163837A2202900300AA2B47 /* BYHUB_Swift */ = {
 			isa = PBXGroup;
 			children = (
+				A163838D2202912F00AA2B47 /* BYHUB */,
 				A163837B2202900300AA2B47 /* AppDelegate.swift */,
 				A163837D2202900300AA2B47 /* ViewController.swift */,
 				A163837F2202900300AA2B47 /* Main.storyboard */,
@@ -64,6 +91,14 @@
 			path = BYHUB_Swift;
 			sourceTree = "<group>";
 		};
+		A163838D2202912F00AA2B47 /* BYHUB */ = {
+			isa = PBXGroup;
+			children = (
+				A163839222029BFC00AA2B47 /* BYHUB.swift */,
+			);
+			path = BYHUB;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,6 +106,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A163838A2202900400AA2B47 /* Build configuration list for PBXNativeTarget "BYHUB_Swift" */;
 			buildPhases = (
+				54C573D441EA3F30FDCB7DBC /* [CP] Check Pods Manifest.lock */,
 				A16383742202900300AA2B47 /* Sources */,
 				A16383752202900300AA2B47 /* Frameworks */,
 				A16383762202900300AA2B47 /* Resources */,
@@ -130,11 +166,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		54C573D441EA3F30FDCB7DBC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BYHUB_Swift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A16383742202900300AA2B47 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A163839322029BFC00AA2B47 /* BYHUB.swift in Sources */,
 				A163837E2202900300AA2B47 /* ViewController.swift in Sources */,
 				A163837C2202900300AA2B47 /* AppDelegate.swift in Sources */,
 			);
@@ -213,7 +275,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -268,7 +330,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -280,6 +342,7 @@
 		};
 		A163838B2202900400AA2B47 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65C794CF007B2F0C24FCAA56 /* Pods-BYHUB_Swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +361,7 @@
 		};
 		A163838C2202900400AA2B47 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09E3B4BC20F0AEBD6BF0BACE /* Pods-BYHUB_Swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

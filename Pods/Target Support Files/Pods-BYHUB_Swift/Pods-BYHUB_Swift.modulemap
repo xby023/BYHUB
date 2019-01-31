@@ -1,0 +1,6 @@
+module Pods_BYHUB_Swift [system] {
+  umbrella header "Pods-BYHUB_Swift-umbrella.h"
+
+  export *
+  module * { export * }
+}

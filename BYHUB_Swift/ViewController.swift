@@ -7,14 +7,30 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    
     }
-
-
+    
+    @IBAction func successForBtn(_ sender: UIButton) {
+       BYHUB.BYHUBManager.showSuccessHUB(info: "Success!")
+    }
+    
+    @IBAction func errorForBtn(_ sender: UIButton) {
+       BYHUB.BYHUBManager.showErrorHUB(info: "Error,Try Again")
+    }
+    
+    @IBAction func meesageForBtn(_ sender: UIButton) {
+       BYHUB.BYHUBManager.showMessageHUB(info: "Early to bed, early to rise makes a man healthy, wealthy and wise")
+    }
+    
+    @IBAction func loadingForBtn(_ sender: UIButton) {
+       BYHUB.BYHUBManager.showLoadingHUB(info: "Loading...")
+       BYHUB.BYHUBManager.hiddenHUB(deadline: DispatchTime.now() + 2,showType: BYHUBShowType.BYHUBShowTypeLoading)
+    }
 }
 
