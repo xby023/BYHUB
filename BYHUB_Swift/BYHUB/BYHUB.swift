@@ -30,6 +30,12 @@ class BYHUB: UIView {
     //图标
     var iconView: UIImageView?
     
+    var successAnimationView: BYSuccessAminationView?
+    
+    var errorAnimationView: BYErrorAminationView?
+    
+    var alertAnimationView: BYAlertAnimationView?
+    
     //当前展示的弹窗类型
     var selectShowType:BYHUBShowType = BYHUBShowType.BYHUBShowTypeSuccess
     
@@ -55,7 +61,16 @@ class BYHUB: UIView {
         iconView = UIImageView()
         iconView?.frame = CGRect(x: 17, y: 8, width: 56, height: 56)
         aletView?.addSubview(iconView!)
-    
+        
+        successAnimationView = BYSuccessAminationView(frame: CGRect(x: 17 + 4, y: 8 + 4, width: 48, height: 48))
+        aletView?.addSubview(successAnimationView!)
+        
+        errorAnimationView = BYErrorAminationView(frame: CGRect(x: 17 + 4, y: 8 + 4, width: 48, height: 48))
+        aletView?.addSubview(errorAnimationView!)
+        
+        alertAnimationView = BYAlertAnimationView(frame: CGRect(x: 17 + 4, y: 8 + 4, width: 48, height: 48))
+        aletView?.addSubview(alertAnimationView!)
+        
         infoLabel = UILabel()
         infoLabel?.frame = CGRect(x: 0, y: 62, width: 90, height: 26)
         infoLabel?.font = UIFont.boldSystemFont(ofSize: 13)
@@ -75,8 +90,12 @@ class BYHUB: UIView {
     ///
     /// - Parameter info: 信息
     public func showSuccessHUB(info: String){
+       errorAnimationView?.stopAnimation()
+       alertAnimationView?.stopAnimation()
        selectShowType = BYHUBShowType.BYHUBShowTypeSuccess
-       iconView?.image = UIImage(named: "BYSUCCESS")
+//       iconView?.image = UIImage(named: "BYSUCCESS")
+        successAnimationView?.starAnimation()
+        iconView?.isHidden = true
        infoLabel?.text = info
        layoutForHUB(info: info)
        UIView.animate(withDuration: 0.1, animations: {
@@ -89,8 +108,12 @@ class BYHUB: UIView {
     ///
     /// - Parameter info: 信息
     public func showErrorHUB(info: String){
+        successAnimationView?.stopAnimation()
+        alertAnimationView?.stopAnimation()
         selectShowType = BYHUBShowType.BYHUBShowTypeError
-        iconView?.image = UIImage(named: "BYERROR")
+//        iconView?.image = UIImage(named: "BYERROR")
+        errorAnimationView?.starAnimation()
+        iconView?.isHidden = true
         infoLabel?.text = info
         layoutForHUB(info: info)
         UIView.animate(withDuration: 0.1, animations: {
@@ -103,8 +126,12 @@ class BYHUB: UIView {
     ///
     /// - Parameter info: 信息
     public func showMessageHUB(info: String){
+        successAnimationView?.stopAnimation()
+        errorAnimationView?.stopAnimation()
         selectShowType = BYHUBShowType.BYHUBShowTypeMessage
-        iconView?.image = UIImage(named: "BYMARK")
+//        iconView?.image = UIImage(named: "BYMARK")
+        alertAnimationView?.starAnimation()
+        iconView?.isHidden = true
         infoLabel?.text = info
         layoutForHUB(info: info)
         UIView.animate(withDuration: 0.1, animations: {
@@ -117,9 +144,13 @@ class BYHUB: UIView {
     ///
     /// - Parameter info: 信息
     public func showLoadingHUB(info: String){
+        successAnimationView?.stopAnimation()
+        errorAnimationView?.stopAnimation()
+        alertAnimationView?.stopAnimation()
         rotatingAnimation(icon: iconView!)
         selectShowType = BYHUBShowType.BYHUBShowTypeLoading
         iconView?.image = UIImage(named: "BYLOAD")
+        iconView?.isHidden = false
         infoLabel?.text = info
         layoutForHUB(info: info)
         UIView.animate(withDuration: 0.1, animations: {
@@ -169,6 +200,9 @@ class BYHUB: UIView {
                 make.center.equalTo(UIApplication.shared.keyWindow!)
             })
             iconView?.frame = CGRect(x: 17, y: 8, width: 56, height: 56)
+            successAnimationView?.frame = CGRect(x: 17 + 4, y: 8 + 4, width: 48, height: 48)
+            errorAnimationView?.frame = CGRect(x: 17 + 4, y: 8 + 4, width: 48, height: 48)
+            alertAnimationView?.frame = CGRect(x: 17 + 4, y: 8 + 4, width: 48, height: 48)
             infoLabel?.frame = CGRect(x: 0, y: 62, width: 90, height: 26)
             
         } else {
@@ -186,6 +220,9 @@ class BYHUB: UIView {
                     make.center.equalTo(UIApplication.shared.keyWindow!)
                 })
                 iconView?.frame = CGRect(x: (width - 56)/2, y: 8, width: 56, height: 56)
+                successAnimationView?.frame = CGRect(x: (width - 56)/2 + 4, y: 8 + 4, width: 48, height: 48)
+                errorAnimationView?.frame = CGRect(x: (width - 56)/2 + 4, y: 8 + 4, width: 48, height: 48)
+                alertAnimationView?.frame = CGRect(x: (width - 56)/2 + 4, y: 8 + 4, width: 48, height: 48)
                 infoLabel?.frame = CGRect(x: 15, y: 62, width: width - 30, height: 26)
             } else {
                 let width = strSize.width + 30
@@ -196,10 +233,12 @@ class BYHUB: UIView {
                     make.center.equalTo(UIApplication.shared.keyWindow!)
                 })
                 iconView?.frame = CGRect(x: (width - 56)/2, y: 8, width: 56, height: 56)
+                successAnimationView?.frame = CGRect(x: (width - 56)/2 + 4, y: 8 + 4, width: 48, height: 48)
+                errorAnimationView?.frame = CGRect(x: (width - 56)/2 + 4, y: 8 + 4, width: 48, height: 48)
+                alertAnimationView?.frame = CGRect(x: (width - 56)/2 + 4, y: 8 + 4, width: 48, height: 48)
                 infoLabel?.frame = CGRect(x: 15, y: 62, width: width - 30, height: labHeight)
             }
-            
-            
+    
         }
     }
     
