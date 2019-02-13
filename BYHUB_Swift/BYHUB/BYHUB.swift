@@ -36,6 +36,8 @@ class BYHUB: UIView {
     
     var alertAnimationView: BYAlertAnimationView?
     
+    var loadingAnimationView: BYLoadingAnimationView?
+    
     //当前展示的弹窗类型
     var selectShowType:BYHUBShowType = BYHUBShowType.BYHUBShowTypeSuccess
     
@@ -60,7 +62,7 @@ class BYHUB: UIView {
         
         iconView = UIImageView()
         iconView?.frame = CGRect(x: 17, y: 8, width: 56, height: 56)
-        aletView?.addSubview(iconView!)
+//        aletView?.addSubview(iconView!)
         
         successAnimationView = BYSuccessAminationView(frame: CGRect(x: 17 + 4, y: 8 + 4, width: 48, height: 48))
         aletView?.addSubview(successAnimationView!)
@@ -70,6 +72,9 @@ class BYHUB: UIView {
         
         alertAnimationView = BYAlertAnimationView(frame: CGRect(x: 17 + 4, y: 8 + 4, width: 48, height: 48))
         aletView?.addSubview(alertAnimationView!)
+        
+        loadingAnimationView = BYLoadingAnimationView(frame: CGRect(x: 17 + 4, y: 8 + 4, width: 48, height: 48))
+        aletView?.addSubview(loadingAnimationView!)
         
         infoLabel = UILabel()
         infoLabel?.frame = CGRect(x: 0, y: 62, width: 90, height: 26)
@@ -92,6 +97,7 @@ class BYHUB: UIView {
     public func showSuccessHUB(info: String){
        errorAnimationView?.stopAnimation()
        alertAnimationView?.stopAnimation()
+       loadingAnimationView?.stopAnimation()
        selectShowType = BYHUBShowType.BYHUBShowTypeSuccess
 //       iconView?.image = UIImage(named: "BYSUCCESS")
         successAnimationView?.starAnimation()
@@ -110,6 +116,7 @@ class BYHUB: UIView {
     public func showErrorHUB(info: String){
         successAnimationView?.stopAnimation()
         alertAnimationView?.stopAnimation()
+        loadingAnimationView?.stopAnimation()
         selectShowType = BYHUBShowType.BYHUBShowTypeError
 //        iconView?.image = UIImage(named: "BYERROR")
         errorAnimationView?.starAnimation()
@@ -128,6 +135,7 @@ class BYHUB: UIView {
     public func showMessageHUB(info: String){
         successAnimationView?.stopAnimation()
         errorAnimationView?.stopAnimation()
+        loadingAnimationView?.stopAnimation()
         selectShowType = BYHUBShowType.BYHUBShowTypeMessage
 //        iconView?.image = UIImage(named: "BYMARK")
         alertAnimationView?.starAnimation()
@@ -149,8 +157,9 @@ class BYHUB: UIView {
         alertAnimationView?.stopAnimation()
         rotatingAnimation(icon: iconView!)
         selectShowType = BYHUBShowType.BYHUBShowTypeLoading
-        iconView?.image = UIImage(named: "BYLOAD")
-        iconView?.isHidden = false
+//        iconView?.image = UIImage(named: "BYLOAD")
+        loadingAnimationView?.starAnimation()
+        iconView?.isHidden = true
         infoLabel?.text = info
         layoutForHUB(info: info)
         UIView.animate(withDuration: 0.1, animations: {
@@ -203,6 +212,7 @@ class BYHUB: UIView {
             successAnimationView?.frame = CGRect(x: 17 + 4, y: 8 + 4, width: 48, height: 48)
             errorAnimationView?.frame = CGRect(x: 17 + 4, y: 8 + 4, width: 48, height: 48)
             alertAnimationView?.frame = CGRect(x: 17 + 4, y: 8 + 4, width: 48, height: 48)
+            loadingAnimationView?.frame = CGRect(x: 17 + 4, y: 8 + 4, width: 48, height: 48)
             infoLabel?.frame = CGRect(x: 0, y: 62, width: 90, height: 26)
             
         } else {
@@ -223,6 +233,7 @@ class BYHUB: UIView {
                 successAnimationView?.frame = CGRect(x: (width - 56)/2 + 4, y: 8 + 4, width: 48, height: 48)
                 errorAnimationView?.frame = CGRect(x: (width - 56)/2 + 4, y: 8 + 4, width: 48, height: 48)
                 alertAnimationView?.frame = CGRect(x: (width - 56)/2 + 4, y: 8 + 4, width: 48, height: 48)
+                loadingAnimationView?.frame = CGRect(x: (width - 56)/2 + 4, y: 8 + 4, width: 48, height: 48)
                 infoLabel?.frame = CGRect(x: 15, y: 62, width: width - 30, height: 26)
             } else {
                 let width = strSize.width + 30
@@ -236,6 +247,7 @@ class BYHUB: UIView {
                 successAnimationView?.frame = CGRect(x: (width - 56)/2 + 4, y: 8 + 4, width: 48, height: 48)
                 errorAnimationView?.frame = CGRect(x: (width - 56)/2 + 4, y: 8 + 4, width: 48, height: 48)
                 alertAnimationView?.frame = CGRect(x: (width - 56)/2 + 4, y: 8 + 4, width: 48, height: 48)
+                loadingAnimationView?.frame = CGRect(x: (width - 56)/2 + 4, y: 8 + 4, width: 48, height: 48)
                 infoLabel?.frame = CGRect(x: 15, y: 62, width: width - 30, height: labHeight)
             }
     

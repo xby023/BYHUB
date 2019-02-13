@@ -17,6 +17,7 @@
 		A19DE67022125BC500F3354B /* BYSuccessAminationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19DE66D22125BC400F3354B /* BYSuccessAminationView.swift */; };
 		A19DE67122125BC500F3354B /* BYErrorAminationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19DE66E22125BC400F3354B /* BYErrorAminationView.swift */; };
 		A19DE67222125BC500F3354B /* BYAlertAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19DE66F22125BC500F3354B /* BYAlertAnimationView.swift */; };
+		A19DE6AE2213C1B400F3354B /* BYLoadingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19DE6AD2213C1B400F3354B /* BYLoadingAnimationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		A19DE66D22125BC400F3354B /* BYSuccessAminationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BYSuccessAminationView.swift; sourceTree = "<group>"; };
 		A19DE66E22125BC400F3354B /* BYErrorAminationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BYErrorAminationView.swift; sourceTree = "<group>"; };
 		A19DE66F22125BC500F3354B /* BYAlertAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BYAlertAnimationView.swift; sourceTree = "<group>"; };
+		A19DE6AD2213C1B400F3354B /* BYLoadingAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BYLoadingAnimationView.swift; sourceTree = "<group>"; };
 		E41F23A059A8A5E7A199AD28 /* libPods-BYHUB_Swift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BYHUB_Swift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -100,6 +102,7 @@
 		A163838D2202912F00AA2B47 /* BYHUB */ = {
 			isa = PBXGroup;
 			children = (
+				A19DE6AD2213C1B400F3354B /* BYLoadingAnimationView.swift */,
 				A19DE66F22125BC500F3354B /* BYAlertAnimationView.swift */,
 				A19DE66E22125BC400F3354B /* BYErrorAminationView.swift */,
 				A19DE66D22125BC400F3354B /* BYSuccessAminationView.swift */,
@@ -206,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A19DE67122125BC500F3354B /* BYErrorAminationView.swift in Sources */,
+				A19DE6AE2213C1B400F3354B /* BYLoadingAnimationView.swift in Sources */,
 				A19DE67222125BC500F3354B /* BYAlertAnimationView.swift in Sources */,
 				A163839322029BFC00AA2B47 /* BYHUB.swift in Sources */,
 				A163837E2202900300AA2B47 /* ViewController.swift in Sources */,
