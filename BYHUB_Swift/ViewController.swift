@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     
     @IBAction func loadingForBtn(_ sender: UIButton) {
        BYHUB.BYHUBManager.showLoadingHUB(info: "Loading...")
-       BYHUB.BYHUBManager.hiddenHUB(deadline: DispatchTime.now() + 2,showType: BYHUBShowType.BYHUBShowTypeLoading)
+       BYHUB.BYHUBManager.hiddenHUB(deadline: DispatchTime.now() + 2)
     }
 }
 

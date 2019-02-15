@@ -38,8 +38,9 @@ class BYHUB: UIView {
     
     var loadingAnimationView: BYLoadingAnimationView?
     
-    //当前展示的弹窗类型
-    var selectShowType:BYHUBShowType = BYHUBShowType.BYHUBShowTypeSuccess
+    
+    var showNumber = 0;
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -89,35 +90,34 @@ class BYHUB: UIView {
         
     }
     
-    
-    
+
     /// 成功
     ///
     /// - Parameter info: 信息
     public func showSuccessHUB(info: String){
+       showNumber += 1
        errorAnimationView?.stopAnimation()
        alertAnimationView?.stopAnimation()
        loadingAnimationView?.stopAnimation()
-       selectShowType = BYHUBShowType.BYHUBShowTypeSuccess
 //       iconView?.image = UIImage(named: "BYSUCCESS")
-        successAnimationView?.starAnimation()
-        iconView?.isHidden = true
+       successAnimationView?.starAnimation()
+       iconView?.isHidden = true
        infoLabel?.text = info
        layoutForHUB(info: info)
        UIView.animate(withDuration: 0.1, animations: {
             self.alpha = 1;
        })
-       hiddenHUB(deadline: DispatchTime.now() + 1.5,showType: BYHUBShowType.BYHUBShowTypeSuccess)
+       hiddenHUB(deadline: DispatchTime.now() + 1.5)
     }
     
     /// 错误
     ///
     /// - Parameter info: 信息
     public func showErrorHUB(info: String){
+        showNumber += 1
         successAnimationView?.stopAnimation()
         alertAnimationView?.stopAnimation()
         loadingAnimationView?.stopAnimation()
-        selectShowType = BYHUBShowType.BYHUBShowTypeError
 //        iconView?.image = UIImage(named: "BYERROR")
         errorAnimationView?.starAnimation()
         iconView?.isHidden = true
@@ -126,17 +126,17 @@ class BYHUB: UIView {
         UIView.animate(withDuration: 0.1, animations: {
             self.alpha = 1;
         })
-        hiddenHUB(deadline: DispatchTime.now() + 1.5 ,showType:BYHUBShowType.BYHUBShowTypeError)
+        hiddenHUB(deadline: DispatchTime.now() + 1.5)
     }
     
     /// 消息
     ///
     /// - Parameter info: 信息
     public func showMessageHUB(info: String){
+        showNumber += 1
         successAnimationView?.stopAnimation()
         errorAnimationView?.stopAnimation()
         loadingAnimationView?.stopAnimation()
-        selectShowType = BYHUBShowType.BYHUBShowTypeMessage
 //        iconView?.image = UIImage(named: "BYMARK")
         alertAnimationView?.starAnimation()
         iconView?.isHidden = true
@@ -145,18 +145,18 @@ class BYHUB: UIView {
         UIView.animate(withDuration: 0.1, animations: {
             self.alpha = 1;
         })
-        hiddenHUB(deadline: DispatchTime.now() + 1.5,showType: BYHUBShowType.BYHUBShowTypeMessage)
+        hiddenHUB(deadline: DispatchTime.now() + 1.5)
     }
     
     /// 加载
     ///
     /// - Parameter info: 信息
     public func showLoadingHUB(info: String){
+        showNumber += 1
         successAnimationView?.stopAnimation()
         errorAnimationView?.stopAnimation()
         alertAnimationView?.stopAnimation()
         rotatingAnimation(icon: iconView!)
-        selectShowType = BYHUBShowType.BYHUBShowTypeLoading
 //        iconView?.image = UIImage(named: "BYLOAD")
         loadingAnimationView?.starAnimation()
         iconView?.isHidden = true
@@ -171,20 +171,17 @@ class BYHUB: UIView {
     ///
     /// - Parameters:
     ///   - deadline: 延时时长
-    ///   - showType: 弹窗类型 用于判断不同类型弹窗互不影响关闭
-    public func hiddenHUB(deadline: DispatchTime,showType: BYHUBShowType) {
-        if showType != BYHUBShowType.BYHUBShowTypeLoading {
-            self.iconView?.layer.removeAllAnimations()
-        }
+    public func hiddenHUB(deadline: DispatchTime) {
+        print("before: number = \(self.showNumber)")
+        //通过 showNumber 来判断重复打开HUB时误关闭了HUB
         DispatchQueue.main.asyncAfter(deadline:deadline) {
-            print("\(showType)----\(self.selectShowType)")
-            if showType == self.selectShowType {
+            self.showNumber -= 1
+            print("after: number = \(self.showNumber)")
+            if self.showNumber < 0  {
+                self.showNumber = 0
+            } else if self.showNumber == 0  {
                 UIView.animate(withDuration: 0.1, animations: {
-                     self.alpha = 0;
-                }, completion: { (finish:Bool) in
-                    if showType == BYHUBShowType.BYHUBShowTypeLoading {
-                        self.iconView?.layer.removeAllAnimations()
-                    }
+                    self.alpha = 0
                 })
             }
         }
