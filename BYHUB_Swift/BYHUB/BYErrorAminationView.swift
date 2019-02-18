@@ -16,6 +16,8 @@ class BYErrorAminationView: UIView {
     var circleLayer: CAShapeLayer?
     var leftLineLayer: CAShapeLayer?
     var rightLineLayer: CAShapeLayer?
+    
+    var canShowAnimation = true
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -74,16 +76,23 @@ class BYErrorAminationView: UIView {
     
     func starAnimation() {
         self.stopAnimation()
+        canShowAnimation = true
         self.circleAnimation(layer: self.circleLayer!,duration: 0.3)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3, execute: {
-            self.circleAnimation(layer: self.leftLineLayer!,duration: 0.1)
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1, execute: {
-                self.circleAnimation(layer: self.rightLineLayer!,duration: 0.1)
-            })
+            if self.canShowAnimation == true {
+                self.circleAnimation(layer: self.leftLineLayer!,duration: 0.1)
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1, execute: {
+                    if self.canShowAnimation == true {
+                      self.circleAnimation(layer: self.rightLineLayer!,duration: 0.1)
+                    }
+                })
+            }
+            
         })
     }
     
     func stopAnimation() {
+        canShowAnimation = false
         self.circleLayer?.removeAllAnimations()
         self.leftLineLayer?.removeAllAnimations()
         self.rightLineLayer?.removeAllAnimations()

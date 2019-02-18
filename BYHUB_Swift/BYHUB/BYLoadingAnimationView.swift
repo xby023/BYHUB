@@ -15,6 +15,9 @@ class BYLoadingAnimationView: UIView {
     
     var circleLayer: CAShapeLayer?
     
+    var canShowAnimation = true
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -39,14 +42,18 @@ class BYLoadingAnimationView: UIView {
     //开始动画
     func starAnimation() {
         self.stopAnimation()
+        canShowAnimation = true
         self.toCircleAnimation(layer: self.circleLayer!,duration: 0.4,fromValue: 0,toValue: 1)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.38) {
-            self.rotatingAnimation(layer: self.layer, duration: 0.7)
+            if self.canShowAnimation == true {
+                self.rotatingAnimation(layer: self.layer, duration: 0.7)
+            }
         }
     }
     
     //结束动画
     func stopAnimation() {
+        canShowAnimation = false
         self.circleLayer?.removeAllAnimations()
         self.layer.removeAllAnimations()
     }

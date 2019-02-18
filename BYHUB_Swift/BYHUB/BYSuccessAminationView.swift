@@ -16,8 +16,7 @@ class BYSuccessAminationView: UIView {
     var circleLayer: CAShapeLayer?
     var hookLayer: CAShapeLayer?
     
-    
-
+    var canShowAnimation = true
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -62,14 +61,18 @@ class BYSuccessAminationView: UIView {
     //开始动画
     func starAnimation() {
         self.stopAnimation()
+        canShowAnimation = true
         self.circleAnimation(layer: self.circleLayer!,duration: 0.3)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3, execute: {
-            self.circleAnimation(layer: self.hookLayer!,duration: 0.1)
+            if self.canShowAnimation == true {
+               self.circleAnimation(layer: self.hookLayer!,duration: 0.1)
+            }
         })
     }
     
     //结束动画
     func stopAnimation() {
+        canShowAnimation = false
         self.circleLayer?.removeAllAnimations()
         self.hookLayer?.removeAllAnimations()
     }

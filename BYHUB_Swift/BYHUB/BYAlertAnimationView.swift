@@ -17,6 +17,8 @@ class BYAlertAnimationView: UIView {
     var upLineLayer: CAShapeLayer?
     var downLineLayer: CAShapeLayer?
     
+    var canShowAnimation = true
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -73,16 +75,22 @@ class BYAlertAnimationView: UIView {
     
     func starAnimation() {
         self.stopAnimation()
+        canShowAnimation = true
         self.circleAnimation(layer: self.circleLayer!,duration: 0.3)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3, execute: {
-            self.circleAnimation(layer: self.upLineLayer!,duration: 0.05)
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.05, execute: {
-                self.circleAnimation(layer: self.downLineLayer!,duration: 0.1)
-            })
+            if self.canShowAnimation ==  true {
+                self.circleAnimation(layer: self.upLineLayer!,duration: 0.05)
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.05, execute: {
+                    if self.canShowAnimation == true {
+                       self.circleAnimation(layer: self.downLineLayer!,duration: 0.1)
+                    }
+                })
+            }
         })
     }
     
     func stopAnimation() {
+        canShowAnimation = false
         self.circleLayer?.removeAllAnimations()
         self.upLineLayer?.removeAllAnimations()
         self.downLineLayer?.removeAllAnimations()
