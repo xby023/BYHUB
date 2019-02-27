@@ -39,7 +39,6 @@ class BYSuccessAminationView: UIView {
         self.layer.addSublayer(circleLayer!)
         
         
-        
         hookLayer = CAShapeLayer()
         let hookPath = UIBezierPath()
         hookPath.move(to: CGPoint(x: width / 10 * 2, y: height / 10 * 5))
